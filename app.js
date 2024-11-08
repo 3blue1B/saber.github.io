@@ -23,26 +23,8 @@ function appendMessage(message, sender) {
 }
 
 async function getAIResponse(userMessage) {
-    // Placeholder for the AI API URL and your API key
-    const apiUrl = 'https://chat.yuxin-ai.com/?model=gpt-4o-mini'; // Replace with your AI API endpoint
-    const apiKey = 'strict-origin-when-cross-origin'; // Replace with your API key
-
-    const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({ prompt: userMessage, max_tokens: 50 })
-    });
-
-    if (!response.ok) {
-        appendMessage("Error: Unable to get response from AI", 'ai');
-        return;
-    }
-
-    const data = await response.json();
-    const aiMessage = data.choices[0].text.trim(); // Adjust based on your API response structure
+    // Directly responding with the desired message
+    const aiMessage = "haha wo bu hui zhe ge.";
     appendMessage(aiMessage, 'ai');
 }
 
